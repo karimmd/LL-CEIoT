@@ -1,0 +1,37 @@
+{
+  "experiment_settings": {
+    "systems": ["LL-CIoT", "Edge-LLM", "FineInfer"],
+    "iot_device_counts": [2, 4, 6, 8, 10],
+    "bandwidth_levels": [1, 10, 20, 30, 40, 50],
+    "edge_server_counts": [1, 2, 3, 4, 5],
+    "runs_per_configuration": 5,
+    "warmup_time_seconds": 30,
+    "measurement_duration_seconds": 300
+  },
+  "models": {
+    "cloud_model": "Mistral-7B",
+    "edge_model": "TinyLlama-1.1B"
+  },
+  "metrics": {
+    "energy_consumption": {
+      "unit": "joules",
+      "measurement_interval": 1.0
+    },
+    "latency": {
+      "unit": "milliseconds", 
+      "percentiles": [50, 90, 95, 99]
+    },
+    "throughput": {
+      "unit": "tokens_per_second",
+      "measurement_window": 10.0
+    },
+    "response_time": {
+      "unit": "milliseconds",
+      "includes_network_overhead": true
+    },
+    "task_completion": {
+      "unit": "seconds",
+      "batch_size": 100
+    }
+  }
+}
